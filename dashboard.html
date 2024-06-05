@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Dashboard</title>
+    
+    <!-- style.link -->
+    <link rel="stylesheet" href="styleDash.css" />
+
+    
+  </head>
+  <body>
+    <nav class="navbar">
+      <a href="#" class="navbar-logo">Dashboard <span>Sales Coffee</span>.</a>
+      <div class="navbar-nav">
+        <form id="form-filter" class="filter-form">
+          <input type="date" id="tanggal" name="tanggal" placeholder="Tanggal" class="filter-input" />
+          <select id="storeLocationFilter" name="storeLocation" class="filter-input">
+            <option value="">All Store Locations</option>
+            <option value="Hell's Kitchen">Hell's Kitchen</option>
+            <option value="Astoria">Astoria</option>
+            <option value="Lower Manhattan">Lower Manhattan</option>
+          </select>
+          <button type="submit" class="filter-button">Filter</button>
+          <button type="button" id="reset-filter" class="filter-button">Reset</button>
+        </form>
+      </div>
+    </nav>
+
+          <!-- BAGIAN 1 -->
+          <section>
+            <div class="cardBox">
+              <div class="card" id="totalQuantityCard">
+                <div class="cardName">Total Quantity</div>
+                <div class="number"></div>
+                <div>
+                  <div class="iconBx">
+                    <ion-icon name="cart-outline"></ion-icon>
+                  </div>
+                </div>
+              </div>
+              <div class="card" id="totalPendapatanCard">
+                <div class="cardName">Total Pendapatan</div>
+                <div class="number"></div>
+                <div>
+                  <div class="iconBx">
+                    <ion-icon name="cash-outline"></ion-icon>
+                  </div>
+                </div>
+              </div>
+              <div class="card" id="jumlahTokoCard">
+                <div class="cardName">Jumlah Toko</div>
+                <div class="number"></div>
+                <div>
+                  <div class="iconBx">
+                    <ion-icon name="storefront-outline"></ion-icon>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>          
+
+
+          <!-- BAGIAN 2 -->
+        <section>
+          <!-- CIRCLE-CHART -->
+         <div class="charts">
+          <div class="chart">
+            <div class="chart-container">
+              <!-- <h3>Persentase Penjualan Produk category</h3> -->
+              <!-- 1 -->
+              <!-- PIE CHART -->
+                <canvas id="myPieChart"></canvas> 
+            </div> 
+          </div>
+           
+          <div class="chart">
+          <div class="chart-container1">
+            <!-- <h3>Persentase Pendapatan Setiap Toko</h3> -->
+            <!-- 2 -->
+            <!-- DOUGHNUT CHART -->
+            <canvas id="myDonutChart"></canvas>
+          </div>
+        </div>
+  
+          <div class="containerBar">
+            <!-- BAR CHART -->
+            <!-- <h3>Total Quantity, Unit price & Omset tiap Toko</h3> -->
+            <!-- 3 -->
+            <canvas id="myBarChart"></canvas>
+          </div>
+        </div>
+      </section>
+
+      <!-- BAGIAN 3 -->
+      <section>
+        <div class="tableMe">
+          <div class="table">
+            <div class="line-chart">
+              <!--<h3>Total Pendapatan Harian Tiap Toko</h3>-->
+              <!-- LINE CHART -->
+              <!-- 5 -->
+              <canvas id="myLineChart"></canvas>
+            </div>
+          </div>
+
+          <div class="table">
+            <div class="line-chart">
+              <!--<h3>Total Pendapatan Per Bulan Setiap Toko</h3>-->
+              <canvas id="LineChartMe"></canvas>
+            </div>
+          </div>
+        </div>
+  </section>
+   
+
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+     
+      <!-- Tautkan file JavaScript -->
+     <script src="scriptBaru.js"></script>
+
+    <!-- script untuk icon  -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"> </script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <script>
+      // menu toggle
+      //let toggle = document.querySelector(".toggle");
+      //let navigation = document.querySelector(".navigation");
+      //let main = document.querySelector(".main");
+
+
+      //toggle.addEventListener('click', function () {
+        //navigation.classList.toggle("active");
+        //main.classList.toggle("active");
+      //});
+
+     
+      // Menambahkan kelas hovered pada item daftar yang dipilih
+      //let list = document.querySelectorAll(".navigation li");
+
+      function activateLink() {
+        list.forEach((item) => {
+          item.classList.remove("hovered");
+        });
+        this.classList.add("hovered");
+      }
+
+      //list.forEach((item) => {
+        //item.addEventListener("mouseover", activateLink);
+      //});
+    </script>
+  </body>
+</html>

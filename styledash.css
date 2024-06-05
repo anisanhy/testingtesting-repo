@@ -1,0 +1,356 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+:root {
+  --primary: #b6895b;
+  --white: #fff;
+  --grey: #f5f5f5;
+  --black1: #222;
+  --black2: #999;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+  background-color: rgba(1, 1, 1, 0.8);
+  border-bottom: 1px solid #513d28;
+  position: static;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+.navbar .navbar-logo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+}
+.navbar .navbar-logo span {
+  color: var(--primary);
+  font-style: italic;
+}
+
+.navbar .navbar-nav {
+  color: #fff;
+  display: flex;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  font-size: 1.1rem;
+  margin: 0 1rem;
+}
+
+.navbar .navbar-nav a {
+  color: #fff;
+  display: inline-block;
+  font-size: 1.1rem;
+  margin: 0 1rem;
+}
+
+.navbar .navbar-nav a:hover {
+  color: var(--primary);
+}
+
+.navbar .navbar-nav a::after {
+  content: "";
+  display: block;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.1rem solid var(--primary);
+  transform: scaleX(0);
+  transition: 0.2s linear;
+}
+
+.navbar .navbar-nav a:hover::after {
+  transform: scaleX(0.5);
+}
+
+.navbar .navbar-extra a {
+  color: #fff;
+  margin: 0 0.5rem;
+}
+
+.navbar .navbar-extra a::hover {
+  color: var(--primary);
+}
+
+/* Filter Form Styling */
+.filter-form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  background-color: #f9f9f9;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.filter-input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.filter-button {
+  padding: 0.5rem 1rem;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.filter-button:hover {
+  background-color: #9c7b42;
+}
+
+.filter-button:active {
+  background-color: #7a6131;
+}
+
+
+/* SELECT STORE LOCATION */
+.costum-select {
+  position: relative;
+  font-family: sans-serif;
+}
+
+.costum-select select {
+  display: none;
+  background-color: var(--primary);
+}
+
+.select-selected {
+  background-color: var(--primary);
+}
+
+/*style the arrow inside the select element:*/
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 7px;
+}
+
+/*style the items (options), including the selected item:*/
+.select-items div,.select-selected {
+  color: #ffffff;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+  user-select: none;
+}
+
+/*style items (options):*/
+.select-items {
+  position: absolute;
+  background-color: var(--primary);
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
+/*hide the items when the select box is closed:*/
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+
+
+/* cardbox */
+.cardBox {
+  position: relative;
+  width: 100%;
+  padding: 5px;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+}
+
+.cardBox .card {
+  position: relative;
+  background: var(--white);
+  padding: 20px;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column; /* Mengatur tata letak menjadi kolom */
+  justify-content: space-between;
+  cursor: pointer;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+}
+
+.cardBox .card .content {
+  display: flex;
+  flex-direction: column;
+}
+
+.cardBox .card .number {
+  position: relative;
+  font-weight: 500;
+  font-size: 2.2em;
+  color: var(--primary);
+}
+
+.cardBox .card .cardName {
+  color: var(--black2);
+  font-size: 1.1em;
+  margin-top: 5px; /* Atur jarak antara .number dan .cardName */
+}
+
+.cardBox .card .iconBx {
+  font-size: 3em;
+  color: var(--black2);
+  margin-left: auto;
+}
+
+.cardBox .card:hover {
+  background: var(--primary);
+}
+
+.cardBox .card:hover .number,
+.cardBox .card:hover .cardName,
+.cardBox .card:hover .iconBx {
+  color: var(--white);
+  position: relative;
+}
+
+/* CHART START HERE  */
+.charts {
+  position: relative;
+  width: 100%;
+  padding: 5px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  border-radius: 10px;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.8);
+}
+
+.chart {
+  background: var(--white);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.8);
+  width: 100% ;
+}
+
+/* untuk Pie Chart */
+.chart-container {
+  width: 100%;
+  position: relative;
+  max-width: 300px;
+}
+
+/* untuk Dougnut Chart */
+.chart-container1 {
+  width: 100%;
+  position: relative;
+  max-width: 300px;
+}
+
+/* untuk Bar Chart */
+.containerBar {
+  display: flex;
+  width: 300%;
+  padding: 5px;
+  background: var(--white);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.8);
+  max-width: 500px;
+}
+
+
+/* pie chart */
+.chart-container h3 {
+  font-size: medium;
+  text-align: center;
+}
+/* donut chart */
+.chart-container1 h3 {
+  font-size: medium;
+  text-align: center;
+}
+/* bar chart */
+.containerBar h3 {
+  font-size: medium;
+  text-align: center;
+  justify-content: center;
+}
+/* table chart */
+.myLineChart h3{
+  font-size: medium;
+  text-align: center;
+}
+.line-chart-bulanan h3{
+  font-size: medium;
+  text-align: center;
+}
+/* pengaturan font end */
+
+.tableMe {
+  position: relative;
+  width: 100%;
+  padding: 5px;
+  display: grid;
+  grid-template-columns: 1fr 1fr ;
+  grid-gap: 10px;
+  border-radius: 10px;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.8);
+}
+
+.table {
+  background: var(--white);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.8);
+  width: 100% ;
+}
+
+/* untuk table Chart */
+.line-chart {
+  width: 200%;
+  position: relative;
+  max-width: 600px;
+}
+
+
